@@ -7,7 +7,7 @@
       </p>
       <small>* = Campo obrigatório</small>
       <div class="card">
-        <form class="form" method="post" action="/profiles/profile/edit/{{profile._id}}?_method=PATCH">
+        <form class="form" method="post" action="/profiles/profile/edit/{{profile._id}}?_method=PATCH" enctype="multipart/form-data">
           <div class="form-group col-md-12">
             <small class="form-text">Escolha sua Profissão</small>
             <select
@@ -115,6 +115,11 @@
                 <input
                   type="text" placeholder="Instagram URL" name="instagram" value="{{profile.social.instagram}}"/>
               </div>
+
+               <div>
+   <label for="file">Escolha sua foto de perfil</label>
+   <input type="file" id="photo" name="photo" multiple>
+ </div>
           <input type="submit" class="btn btn-primary my-1" />
           <a class="btn btn-light my-1" href="/profiles/profile/dashboard">
             Retornar

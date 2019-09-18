@@ -132,6 +132,9 @@ const ProfileSchema = new mongoose.Schema({
       type: String
     }
   },
+  photo: {
+    type: String,
+  },
   date: {
     type: Date,
     default: Date.now

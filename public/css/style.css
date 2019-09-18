@@ -268,8 +268,24 @@ img {
   border: #ccc solid 1px;
 }
 
+.header_logo img {
+  height: 3.5rem;
+}
+@media only screen and (max-width: 62.5em) {
+  .header_logo {
+    -webkit-box-ordinal-group: 0;
+    -ms-flex-order: -1;
+    order: -1;
+    margin-bottom: 1.5rem;
+  }
+}
+
 .round-img {
   border-radius: 50%;
+}
+.round-img-header {
+  border-radius: 50%;
+  margin: 50px;
 }
 
 .line {

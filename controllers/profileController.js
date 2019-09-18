@@ -1,3 +1,5 @@
+const multer = require('multer');
+const sharp = require('sharp');
 const Profile = require('./../models/Profile');
 const User = require('./../models/User');
 
@@ -39,7 +41,6 @@ exports.getEditProfileId = async(req, res) => {
 exports.getUserDashboard = async(req, res) => {
   try {
     const profile = await Profile.findOne({user: req.user.id}).select('-password').populate('user', ['name', 'avatar']);
-    console.log(profile)
     res.status(200).render('dashboard/dashboard', {
       profile
     })
@@ -59,6 +60,38 @@ exports.getCreateEducation = async (req, res) => {
 exports.getCreateExperience = async (req, res) => {
   res.status(200).render('profileForm/createExperience');
 }
+
+
+const multerStorage = multer.memoryStorage();
+
+const multerFilter = (req, file, cb) => {
+  if (file.mimetype.startsWith('image')) {
+    cb(null, true);
+  } else {
+    cb(req.flash('error_msg', 'Não conseguimos realizar inclussão de dados!!!'), false);
+  }
+};
+const upload = multer({
+  storage: multerStorage,
+  fileFilter: multerFilter
+});
+
+exports.uploadUserPhoto = upload.single('photo');
+
+exports.resizeUserPhoto = async (req, res, next) => {
+  if (!req.file) return next();
+
+  req.file.filename = `user-${req.user.id}-${Date.now()}.jpeg`;
+
+  await sharp(req.file.buffer)
+    .resize(500, 500)
+    .toFormat('jpeg')
+    .jpeg({ quality: 90 })
+    .toFile(`public/img/users/${req.file.filename}`);
+
+  next();
+};
+
 
 
 exports.postCreateProfile = async (req, res) => {
@@ -145,7 +178,6 @@ exports.deleteProfile = async (req, res) => {
 
 exports.createExperience = async (req, res) => {
 
-  console.log(req.body)
   const {
     title,
     company,
@@ -165,7 +197,6 @@ exports.createExperience = async (req, res) => {
     current,
     description
   };
-  console.log(req.body)
 
   try {
     const profile = await Profile.findOne({ user: req.user.id });
@@ -302,6 +333,7 @@ exports.updateProfile = async (req, res) => {
   if (terms) profileFields.terms = terms;
   if (comment) profileFields.comment = comment;
   if (privacy) profileFields.privacy = privacy;
+  if (req.file) profileFields.photo = req.file.filename;
   if (cellphone) {
     profileFields.cellphone = cellphone
       .split(',')
@@ -317,8 +349,8 @@ exports.updateProfile = async (req, res) => {
   if (facebook) profileFields.social.facebook = facebook;
   if (linkedin) profileFields.social.linkedin = linkedin;
   if (instagram) profileFields.social.instagram = instagram;
-
   try {
+    console.log(profileFields);
     let profile = await Profile.findByIdAndUpdate(req.params.id, profileFields,
       { new: true, runValidators: true}
     );
