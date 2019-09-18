@@ -16,7 +16,7 @@ const UserSchema = new mongoose.Schema({
   },
   avatar: {
     type: String, 
-    default: 'http://www.gravatar.com/avatar/046f3b022cf5abc9fc7958aa8b594ee1?s=200&r=pg&d=mm'
+    default: 'avatar.png'
   },
   date: {
     type: Date,
