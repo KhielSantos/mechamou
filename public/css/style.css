@@ -770,7 +770,7 @@ select.form-control:focus::-ms-value {
 
   #showfooter {
     position: relative;
-    background: url("./../img/img2.jpg") no-repeat;
+    background: url("../img/web/img2.jpg") no-repeat;
     margin-top: 55px;
   }
 
@@ -831,6 +831,9 @@ select.form-control:focus::-ms-value {
 .profiles {
     width: 230px;
     height: 250px;
+}
+.mb-0 {
+  margin-bottom: 0 !important;
 }
 
   .profile-grid {
@@ -1836,7 +1839,7 @@ select.form-control:focus::-ms-value {
 }
 
 .display-2 {
-  font-size: 5.5rem;
+  font-size: 60px;
   font-weight: 300;
   line-height: 1.2;
 }
