@@ -43,14 +43,7 @@ img {
   margin-top: 6rem;
   margin-bottom: 3rem;
 }
-/* 
-.container {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-} */
+
 
 /* Text Styles*/
 .x-large {
@@ -71,7 +64,7 @@ img {
 }
 
 .text-center {
-  text-align: center;
+  text-align: center !important;
 }
 
 .text-primary {
@@ -80,6 +73,14 @@ img {
 
 .text-dark {
   color: var(--dark-color);
+}
+
+.text-light {
+  color: #f8f9fa !important;
+}
+
+a.text-light:focus, a.text-light:hover {
+  color: #dae0e5 !important;
 }
 
 /* Padding */
@@ -144,29 +145,6 @@ img {
   font-size: 18px;
 }
 
-@media (min-width: 576px) {
-  .container {
-    max-width: 540px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    max-width: 960px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
-}
 
 .container-fluid {
   width: 100%;
@@ -615,6 +593,23 @@ select.form-control:focus::-ms-value {
   height: 100vh;
 }
 
+#showfooter {
+  position: relative;
+  background: url("../img/web/footer.png") no-repeat;
+  margin-top: 55px;
+}
+
+
+#showfooter .primary-overlay {
+  background: #26439375;
+  min-height: 615px;
+}
+
+.mt-5,
+.my-5 {
+  margin-top: 3rem !important;
+}
+
 .landing-inner {
   color: #fff;
   height: 100%;
@@ -772,6 +767,12 @@ select.form-control:focus::-ms-value {
     margin-top: 8rem;
   }
 
+  #showfooter {
+    position: relative;
+    background: url("./../img/img2.jpg") no-repeat;
+    margin-top: 55px;
+  }
+
   .hide-sm {
     display: none;
   }
@@ -854,14 +855,6 @@ select.form-control:focus::-ms-value {
   }
 }
 
-.container {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
 @media (min-width: 576px) {
   .container {
     max-width: 540px;
@@ -886,13 +879,6 @@ select.form-control:focus::-ms-value {
   }
 }
 
-.container-fluid {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
 
 .row {
   display: -ms-flexbox;
@@ -1842,11 +1828,31 @@ select.form-control:focus::-ms-value {
     margin-left: 91.666667%;
   }
 }
-.text-center {
-  text-align: center !important;
+
+.display-2 {
+  font-size: 5.5rem;
+  font-weight: 300;
+  line-height: 1.2;
 }
 
 .mt-3,
 .my-3 {
   margin-top: 1rem !important;
+}
+.mt-6{
+  margin-top: 0px !important;
+  margin-bottom: 0 !important;
+}
+.pt-5,
+.py-5 {
+  padding-top: 3rem !important;
+}
+
+.mt-4,
+.my-4 {
+  margin-top: 1.5rem !important;
+}
+
+.text-white {
+  color: #fff !important;
 }
