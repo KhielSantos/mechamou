@@ -17,6 +17,6 @@ router.put('/create/education', auth.ensureAuthenticated, profilesController.cre
 router.delete('/profile/delete', auth.ensureAuthenticated, profilesController.deleteProfile);
 router.delete('/profile/experience/:exp_id', auth.ensureAuthenticated, profilesController.deleteExperience);
 router.delete('/profile/education/:edu_id', auth.ensureAuthenticated, profilesController.deleteEducation);
-router.patch('/profile/edit/:id', auth.ensureAuthenticated, profilesController.uploadUserPhoto, profilesController.resizeUserPhoto, profilesController.updateProfile);
+router.patch('/profile/edit/:id', auth.ensureAuthenticated, profilesController.uploadUserPhoto, profilesController.updateProfile);
 
 module.exports = router;
