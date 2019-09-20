@@ -156,6 +156,7 @@ a.text-light:focus, a.text-light:hover {
 .footer {
   background: #343a40;
   min-width: 300px;
+  padding-bottom: 30px !important;
 }
 
 .btn {
@@ -827,6 +828,10 @@ select.form-control:focus::-ms-value {
     height: 250px;
     margin: auto;
   }
+.profiles {
+    width: 230px;
+    height: 250px;
+}
 
   .profile-grid {
     grid-template-areas:
