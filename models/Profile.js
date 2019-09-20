@@ -134,7 +134,7 @@ const ProfileSchema = new mongoose.Schema({
   },
   photo: {
     type: String,
-    default: "avatar.png"
+    default: "default.jpg"
   },
   date: {
     type: Date,
