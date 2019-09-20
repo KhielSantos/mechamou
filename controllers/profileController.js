@@ -1,5 +1,5 @@
 const multer = require('multer');
-const sharp = require('sharp');
+// const sharp = require('sharp');
 const Profile = require('./../models/Profile');
 const User = require('./../models/User');
 
